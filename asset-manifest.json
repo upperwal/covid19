@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/covid19/static/css/main.818e20dc.chunk.css",
+    "main.js": "/covid19/static/js/main.adb804e5.chunk.js",
+    "main.js.map": "/covid19/static/js/main.adb804e5.chunk.js.map",
+    "runtime-main.js": "/covid19/static/js/runtime-main.93cd156c.js",
+    "runtime-main.js.map": "/covid19/static/js/runtime-main.93cd156c.js.map",
+    "static/js/2.077b3cfc.chunk.js": "/covid19/static/js/2.077b3cfc.chunk.js",
+    "static/js/2.077b3cfc.chunk.js.map": "/covid19/static/js/2.077b3cfc.chunk.js.map",
+    "index.html": "/covid19/index.html",
+    "precache-manifest.747a79ef684cb653ad06d5e7314eafd0.js": "/covid19/precache-manifest.747a79ef684cb653ad06d5e7314eafd0.js",
+    "service-worker.js": "/covid19/service-worker.js",
+    "static/css/main.818e20dc.chunk.css.map": "/covid19/static/css/main.818e20dc.chunk.css.map",
+    "static/js/2.077b3cfc.chunk.js.LICENSE.txt": "/covid19/static/js/2.077b3cfc.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/covid19/static/media/Quicksand-Regular.f87b9b4f.ttf",
+    "static/media/cover_face.svg": "/covid19/static/media/cover_face.8458c828.svg",
+    "static/media/dont_touch_face.svg": "/covid19/static/media/dont_touch_face.2f3c3d90.svg",
+    "static/media/face_mask.svg": "/covid19/static/media/face_mask.0a2b4dab.svg",
+    "static/media/handrub.svg": "/covid19/static/media/handrub.f0a5d838.svg",
+    "static/media/handwash.svg": "/covid19/static/media/handwash.2708ccaf.svg",
+    "static/media/social_distancing.svg": "/covid19/static/media/social_distancing.f11225ad.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.93cd156c.js",
+    "static/js/2.077b3cfc.chunk.js",
+    "static/css/main.818e20dc.chunk.css",
+    "static/js/main.adb804e5.chunk.js"
+  ]
+}
