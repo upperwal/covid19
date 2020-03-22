@@ -1,5 +1,7 @@
 Covid-19 website: https://upperwal.github.io/covid19/
 
+### Multilingual Indian platform for Covid-19.
+
 Reliable and accurate information play a very important role in fighting a crisis like covid-19. This platform aim to bring all resources and people together and deliver useful information to as many Indians as possible.
 
 **When contributing any content, remember:**
