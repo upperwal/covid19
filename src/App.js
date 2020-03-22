@@ -17,7 +17,7 @@ function App() {
         <Header/>
         <Switch>
           <Route exact path="/covid19" component={Home} />
-          <Route exact path="/covid19/sd" component={SD} />
+          <Route path="/covid19/sd" component={SD} />
         </Switch>
       </Router>
     </div>
