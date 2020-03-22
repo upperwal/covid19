@@ -48,7 +48,9 @@ class HeaderComponent extends React.Component {
                                         <Link to="#">Learn</Link>
                                     </div>
                                     <div className="dropdown-content">
-                                        <a href="https://www.mohfw.gov.in/pdf/SocialDistancingAdvisorybyMOHFW.pdf" target="_blank" rel="noopener noreferrer">What is Social Distancing, Self Quarantine or Janata Curfew?</a>
+                                        <Link to="/covid19/sd/">What is Social Distancing and Janata Curfew?</Link>
+                                        {/* <a href="https://www.mohfw.gov.in/pdf/SocialDistancingAdvisorybyMOHFW.pdf" target="_blank" rel="noopener noreferrer">What is Social Distancing and Janata Curfew?</a> */}
+                                        <Link to="#">How one should practice Self Quarantine</Link>
                                         <a href="https://www.mohfw.gov.in/pdf/Mask-Eng.pdf" target="_blank" rel="noopener noreferrer">When to wear a mask?</a>
                                         <a href="https://www.mohfw.gov.in/pdf/FINAL_14_03_2020_ENg.pdf" target="_blank" rel="noopener noreferrer">When to get tested for covid-19?</a>
                                     </div>

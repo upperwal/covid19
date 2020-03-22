@@ -43,7 +43,7 @@ class SocialDistancingComponent extends React.Component {
                     </div>
                   </div>
                   
-                  <div className="info-box info-box-center extra-margin-top">
+                  <div className="info-box extra-margin-top">
 
                     
                     <h1>How does Ministry of Health, India defines it?</h1>
