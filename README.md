@@ -28,5 +28,10 @@ How you can contribute.
 | | Hindi | [] |
 | | Kannada | [] |
 | | Tamil | [] |
+| https://youtu.be/2WCtGFNENYU      | English | [x] |
+| | Urdu | [] |
+| | Hindi | [] |
+| | Kannada | [] |
+| | Tamil | [] |
 
 3. Build visualisations like https://co.vid19.sg/ for India.
