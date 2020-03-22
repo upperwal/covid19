@@ -50,3 +50,15 @@ Language files reside in [this folder](public/locales).
 ### Contributing to an existing language
 
 This means that `translation.json` would be available for this language and you can either correct the translations or add new ones.
+
+
+### Language Code Table
+
+| Language        | Code           | 
+|:-------------:|:-------------:| 
+| English      | `en` |
+| Hindi | `in_hi` |
+| Kanadda | `in_knn`
+| Odia | `in_od` |
+| Tamil | `in_tam` |
+| Urdu | `in_urd` |
