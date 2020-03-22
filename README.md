@@ -54,11 +54,12 @@ This means that `translation.json` would be available for this language and you 
 
 ### Language Code Table
 
-| Language        | Code           | 
-|:-------------:|:-------------:| 
-| English      | `en` |
-| Hindi | `in_hi` |
-| Kanadda | `in_knn`
-| Odia | `in_od` |
-| Tamil | `in_tam` |
-| Urdu | `in_urd` |
+| Language        | Code           | Contributors |
+|:-------------:|:-------------:|:-------------:|
+| English      | `en` |  |
+| Hindi | `in_hi` | |
+| Kanadda | `in_knn` | |
+| Odia | `in_od` | Biplab Pradhan (@12345pnp) |
+| Tamil | `in_tam` | |
+| Urdu | `in_urd` | |
+| Punjabi | | |
