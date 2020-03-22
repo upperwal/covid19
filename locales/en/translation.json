@@ -11,7 +11,20 @@
         "social_distancing": "Practice home quarantine and social distancing",
         "mask": "Wear a mask if you have cold or flu like symptoms",
         "resources": {
-            "who": "https://www.youtube.com/embed/1APwq1df6Mw"
+            "who": "https://www.youtube.com/embed/8c_UJwLq8PI"
         }
-    }    
+    },
+    "sd": {
+        "what_is_sd": "What is Social Distancing?",
+        "what_is_sd_ans": "Social distancing is deliberately increasing the physical space between people to avoid spreading illness. Staying at least six feet away from other people lessens your chances of catching COVID-19.",
+        "what_is_sd_ans-2": "Examples of social distancing that allow you to avoid larger crowds or crowded spaces are:",
+        "what_is_sd_ans-2-opt1": "Working from home instead of at the office",
+        "what_is_sd_ans-2-opt2": "Closing schools or switching to online classes",
+        "what_is_sd_ans-2-opt3": "Visiting loved ones by electronic devices instead of in person",
+        "what_is_sd_ans-2-opt4": "Cancelling or postponing conferences and large meetings",
+        "jan_curfew_message": "Janata Curfew: It's a voluntary effort of self quarantine to flight spread of coronavirus. Stay Home. Stay Safe.",
+        "resources": {
+            "what_is_video": "https://www.youtube.com/embed/2WCtGFNENYU"
+        }
+    }
 }
