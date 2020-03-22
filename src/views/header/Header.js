@@ -23,7 +23,7 @@ class HeaderComponent extends React.Component {
                     
                         <ul>
                             <li>
-                                <Link to="/covid19">Home</Link>
+                                <Link to="/">Home</Link>
                             </li>
                             <li>
                                 <Link to="#">Active Funds</Link>
@@ -48,7 +48,7 @@ class HeaderComponent extends React.Component {
                                         <Link to="#">Learn</Link>
                                     </div>
                                     <div className="dropdown-content">
-                                        <Link to="/covid19/sd/">What is Social Distancing?</Link>
+                                        <Link to="/sd">What is Social Distancing?</Link>
                                         {/* <a href="https://www.mohfw.gov.in/pdf/SocialDistancingAdvisorybyMOHFW.pdf" target="_blank" rel="noopener noreferrer">What is Social Distancing and Janata Curfew?</a> */}
                                         <Link to="#">How one should practice Self Quarantine</Link>
                                         <a href="https://www.mohfw.gov.in/pdf/Mask-Eng.pdf" target="_blank" rel="noopener noreferrer">When to wear a mask?</a>

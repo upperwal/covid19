@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom'
+import { Route, Switch, HashRouter as Router } from 'react-router-dom'
 
 import './App.scss';
 
@@ -13,11 +13,11 @@ function App() {
   return (
     <div className="App">
       
-      <Router>
+      <Router basename='/'>
         <Header/>
         <Switch>
-          <Route exact path="/covid19" component={Home} />
-          <Route path="/covid19/sd" component={SD} />
+          <Route exact path="/" component={Home} />
+          <Route path="/sd" component={SD} />
         </Switch>
       </Router>
     </div>
