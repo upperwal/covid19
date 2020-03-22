@@ -62,4 +62,4 @@ This means that `translation.json` would be available for this language and you 
 | Odia | `in_od` | Biplab Pradhan (@12345pnp) |
 | Tamil | `in_tam` | |
 | Urdu | `in_urd` | |
-| Punjabi | | |
+| Punjabi | `in_punjabi` | Sumit Sharma (@sumit-mig) |
