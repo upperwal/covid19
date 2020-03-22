@@ -59,7 +59,7 @@ class HeaderComponent extends React.Component {
                         </ul>
                         <div className="language-box">
                             Language:
-                            <select onChange={(e) => this.changeLanguage(e, this.props.i18n)} defaultValue="en">
+                            <select onChange={(e) => this.changeLanguage(e, this.props.i18n)} defaultValue={this.props.i18n.language}>
                                 <option value="en">English</option>
                                 <option value="in_urd">اردو</option>
                                 <option value="in_hi">हिंदी</option>
