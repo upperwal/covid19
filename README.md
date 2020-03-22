@@ -35,3 +35,18 @@ Reliable and accurate information play a very important role in fighting a crisi
 | | Tamil | [] |
 
 3. Build visualisations like https://co.vid19.sg/ for India.
+
+### Adding a new language
+
+Language files reside in [this folder](public/locales). 
+
+* Step 1: Create a new directory inside `public/locales` with prefix `in_<LANGUAGE_CODE>`. `LANGUAGE_CODE` could be anything but it should be relevant. 
+* Step 2: Add `translation.json` within the newly created directory and add language translations. (Refer to English or Hindi translation files)
+* Step 3: Code for the dropdown to change the language is available in [src/views/header/Header.js](src/views/header/Header.js). You need to add a new option with value `in_<LANGUAGE_CODE>` as shown below:
+```html
+<option value="in_tam">தமிழ்</option>
+```
+
+### Contributing to an existing language
+
+This means that `translation.json` would be available for this language and you can either correct the translations or add new ones.
