@@ -1,0 +1,36 @@
+.image-box {
+    display: flex;
+    align-items: center;
+    img {
+        width: 80%;
+        margin: 0px auto;
+    }
+}
+
+.info-box-center {
+    text-align: center;
+}
+
+.extra-margin-top {
+    margin-top: 80px;
+}
+
+.social-dis-video {
+    width: 100%;
+    height: 500px;
+}
+
+.imp-message {
+    font-family: 'quicksand';
+    margin-bottom: 50px;
+    h1 {
+        color: #EB5297;
+    }
+    span {
+        background-color: #EB5297;
+        padding: 3px 8px;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 1em;
+    }
+}

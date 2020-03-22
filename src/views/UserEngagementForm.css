@@ -1,0 +1,42 @@
+.user-engagement-form {
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    margin-top: 80px;
+}
+
+.user-engagement-form > h1 {
+    font-size: 3em;
+    text-align: center;
+    line-height: 1.6em;
+    color: #231F20;
+}
+
+.user-engagement-form .starter-box {
+    display: inline-block;
+    margin: 0px;
+    padding: 0px 10px;
+}
+
+.user-engagement-form .btn-group {
+    margin: 10px 0px;
+}
+
+.user-engagement-form .dropdown-menu {
+    background-color: #fff;
+    border-color: #ddd;
+    width: 300px;
+}
+
+.user-engagement-form .dropdown-menu a {
+    padding-left: 20px;
+    color: #000;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+}
+
+.user-engagement-form .dropdown-menu a:hover {
+    background-color: #eee;
+}
