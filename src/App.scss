@@ -36,3 +36,18 @@ html, body {
     content: "Source/Credit: ";
   }
 }
+
+.imp-message {
+  font-family: 'quicksand';
+  margin-bottom: 50px;
+  h1 {
+      color: #EB5297;
+  }
+  span {
+      background-color: #EB5297;
+      padding: 3px 8px;
+      border-radius: 4px;
+      color: #fff;
+      font-size: 1em;
+  }
+}

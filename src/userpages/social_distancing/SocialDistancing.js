@@ -1,15 +1,9 @@
 import React, { Suspense } from 'react';
 import { withTranslation } from 'react-i18next';
 
-import './SocialDistancing.scss'
-// import Content from './mk.md'
+import CurfewMessage from '../../views/CurfewMessage'
 
-import coverFace from '../../images/cover_face.svg'
-import handwash from '../../images/handwash.svg'
-import dTouchFace from '../../images/dont_touch_face.svg'
-import handRub from '../../images/handrub.svg'
-import faceMask from '../../images/face_mask.svg'
-import socialDistancing from '../../images/social_distancing.svg'
+import './SocialDistancing.scss'
 
 class SocialDistancingComponent extends React.Component {
 
@@ -19,10 +13,7 @@ class SocialDistancingComponent extends React.Component {
         return (
             <>
                 <div className="container">
-                  <div className="imp-message">
-                    <h1>{t('sd.jan_curfew_message')}</h1>
-                    <span>22nd March 07:00 AM to 09:00 PM</span>
-                  </div>
+                  <CurfewMessage/>
                   <div className="row">
                   <div className="col-md-8 info-box">
                       <h1>{t('sd.what_is_sd')}</h1>
@@ -35,7 +26,7 @@ class SocialDistancingComponent extends React.Component {
                         <li>{t('sd.what_is_sd_ans-2-opt3')}</li>
                         <li>{t('sd.what_is_sd_ans-2-opt4')}</li>
                       </ul>
-                      <div className="source"><a href="https://www.hopkinsmedicine.org/health/conditions-and-diseases/coronavirus/coronavirus-social-distancing-and-self-quarantine" target="_blank">Johns Hopkins Medicine</a></div>
+                      <div className="source"><a href="https://www.hopkinsmedicine.org/health/conditions-and-diseases/coronavirus/coronavirus-social-distancing-and-self-quarantine" rel="noopener noreferrer" target="_blank">Johns Hopkins Medicine</a></div>
                     </div>
                     <div className="col-md-4 image-box">
                       <iframe className="social-dis-video" title="Information WHO" src="https://www.youtube.com/embed/53R4wbhrrLA" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>

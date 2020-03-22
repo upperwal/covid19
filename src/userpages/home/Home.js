@@ -1,9 +1,7 @@
 import React, { Suspense } from 'react';
 import { withTranslation } from 'react-i18next';
 
-/* import UserEngagementForm from '../../views/UserEngagementForm'
-import CityGraphics from '../../views/CityGraphics/CityGraphics'
-import MarkdownContent from '../../views/MarkdownContent' */
+import CurfewMessage from '../../views/CurfewMessage'
 
 import './Home.scss'
 // import Content from './mk.md'
@@ -23,6 +21,7 @@ class HomeComponent extends React.Component {
         return (
             <>
                 <div className="container">
+                    <CurfewMessage/>
                     <div className="row">
                         <div className="col-md-6">
                             <iframe className="embed-video" title="Information WHO" src={t('home.resources.who')} frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
