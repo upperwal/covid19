@@ -66,6 +66,7 @@ class HeaderComponent extends React.Component {
                                 <option value="in_knn">ಕೆನಡಾ</option>
                                 <option value="in_tam">தமிழ்</option>
                                 <option value="in_od">ଓଡ଼ିଆ</option>
+                                <option value="in_punjabi">ਪੰਜਾਬੀ</option>
                             </select>
                         </div>
 
