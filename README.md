@@ -16,7 +16,7 @@ Reliable and accurate information play a very important role in fighting a crisi
 
 3. Please don't cite news channels.
 
-How you can contribute.
+**How you can contribute.**
 
 1. Language translation and vetting: All Indian languages are translated from English using Google translate which isn't accurate. You can either do the same for the languages which are currently not available or if you are familiar with the translated language help us identify the mistakes in translations.
 2. Record audio for the following content.
