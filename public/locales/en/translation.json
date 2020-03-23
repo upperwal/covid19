@@ -26,5 +26,17 @@
         "resources": {
             "what_is_video": "https://www.youtube.com/embed/2WCtGFNENYU"
         }
+    },
+    "sq": {
+        "what_is_sq": "What is Self Quarantine?",
+        "what_is_sq_ans": "People who have been exposed to the new coronavirus and who are at risk for coming down with COVID-19 might practice self-quarantine. Health experts recommend that self-quarantine lasts 14 days. Two weeks provides enough time for them to know whether or not they will become ill and be contagious to other people.",
+        "what_is_sq_ans-2": "You might be asked to practice self-quarantine if you have recently returned from traveling to a part of the country or the world where COVID-19 is spreading rapidly, or if you have knowingly been exposed to an infected person.",
+        "involves": "Self-quarantine involves",
+        "involves-1": "Using standard hygiene and washing hands frequently",
+        "involves-2": "Not sharing things like towels and utensils",
+        "involves-3": "Staying at home",
+        "involves-4": "Not having visitors",
+        "involves-5": "Staying at least 6 feet away from other people in your household",
+        "end_msg": "Once your quarantine period has ended, if you do not have symptoms, follow your doctor’s instructions on how to return to your normal routine."
     }
 }
