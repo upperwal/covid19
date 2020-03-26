@@ -23,6 +23,14 @@ object-assign
 
 /*! https://mths.be/codepointat v0.2.0 by @mathias */
 
+/**
+ * A better abstraction over CSS.
+ *
+ * @copyright Oleg Isonen (Slobodskoi) / Isonen 2014-present
+ * @website https://github.com/cssinjs/jss
+ * @license MIT
+ */
+
 /** @license React v0.18.0
  * scheduler.production.min.js
  *
