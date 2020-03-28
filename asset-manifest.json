@@ -1,29 +1,32 @@
 {
   "files": {
-    "main.css": "/static/css/main.c9ff319b.chunk.css",
-    "main.js": "/static/js/main.13f63b77.chunk.js",
-    "main.js.map": "/static/js/main.13f63b77.chunk.js.map",
+    "main.css": "/static/css/main.5e5b0b9d.chunk.css",
+    "main.js": "/static/js/main.26c769aa.chunk.js",
+    "main.js.map": "/static/js/main.26c769aa.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.b822f51a.js",
     "runtime-main.js.map": "/static/js/runtime-main.b822f51a.js.map",
-    "static/js/2.5eb2e048.chunk.js": "/static/js/2.5eb2e048.chunk.js",
-    "static/js/2.5eb2e048.chunk.js.map": "/static/js/2.5eb2e048.chunk.js.map",
+    "static/js/2.31cf9b95.chunk.js": "/static/js/2.31cf9b95.chunk.js",
+    "static/js/2.31cf9b95.chunk.js.map": "/static/js/2.31cf9b95.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.f5b99f4dbe075e86681fa5bdd5d78b4f.js": "/precache-manifest.f5b99f4dbe075e86681fa5bdd5d78b4f.js",
+    "precache-manifest.a26cba0b6cb38f33956df72e4b51cfb5.js": "/precache-manifest.a26cba0b6cb38f33956df72e4b51cfb5.js",
     "service-worker.js": "/service-worker.js",
-    "static/css/main.c9ff319b.chunk.css.map": "/static/css/main.c9ff319b.chunk.css.map",
-    "static/js/2.5eb2e048.chunk.js.LICENSE.txt": "/static/js/2.5eb2e048.chunk.js.LICENSE.txt",
+    "static/css/main.5e5b0b9d.chunk.css.map": "/static/css/main.5e5b0b9d.chunk.css.map",
+    "static/js/2.31cf9b95.chunk.js.LICENSE.txt": "/static/js/2.31cf9b95.chunk.js.LICENSE.txt",
     "static/media/App.scss": "/static/media/Quicksand-Regular.f87b9b4f.ttf",
+    "static/media/colab.svg": "/static/media/colab.7ca9adbc.svg",
     "static/media/cover_face.svg": "/static/media/cover_face.8458c828.svg",
     "static/media/dont_touch_face.svg": "/static/media/dont_touch_face.2f3c3d90.svg",
     "static/media/face_mask.svg": "/static/media/face_mask.0a2b4dab.svg",
+    "static/media/github.svg": "/static/media/github.01e16c11.svg",
     "static/media/handrub.svg": "/static/media/handrub.f0a5d838.svg",
     "static/media/handwash.svg": "/static/media/handwash.2708ccaf.svg",
-    "static/media/social_distancing.svg": "/static/media/social_distancing.f11225ad.svg"
+    "static/media/social_distancing.svg": "/static/media/social_distancing.f11225ad.svg",
+    "static/media/telegram.svg": "/static/media/telegram.1420d9c0.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.b822f51a.js",
-    "static/js/2.5eb2e048.chunk.js",
-    "static/css/main.c9ff319b.chunk.css",
-    "static/js/main.13f63b77.chunk.js"
+    "static/js/2.31cf9b95.chunk.js",
+    "static/css/main.5e5b0b9d.chunk.css",
+    "static/js/main.26c769aa.chunk.js"
   ]
 }
