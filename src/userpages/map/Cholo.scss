@@ -1,0 +1,55 @@
+.q0-9 { fill:rgb(255,255,255); }
+.q1-9 { fill:rgb(222,235,247); }
+.q2-9 { fill:rgb(198,219,239); }
+.q3-9 { fill:rgb(158,202,225); }
+.q4-9 { fill:rgb(107,174,214); }
+.q5-9 { fill:rgb(66,146,198); }
+.q6-9 { fill:rgb(33,113,181); }
+.q7-9 { fill:rgb(8,81,156); }
+.q8-9 { fill:rgb(8,48,107); }
+
+.r0-9 { fill:#fff; }
+.r1-9 { fill:#ff90a6; }
+.r2-9 { fill:#ff6e8b; }
+.r3-9 { fill:#ff3b63; }
+.r4-9 { fill:#ff083a; }
+.r5-9 { fill:#d4002b; }
+.r6-9 { fill:#b20024; }
+.r7-9 { fill:#7f001a; }
+.r8-9 { fill:#2a0009; }
+
+.gray-fill {
+    fill: #777
+}
+
+.border {
+    stroke: #00000020;
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    fill: none;
+}
+
+.highlighted {
+    fill:#ff083a;
+    stroke: #b20024;
+    stroke-width: 1px;
+}
+
+.highlighted-gray {
+    fill:#777;
+    stroke: #555;
+    stroke-width: 1px;
+}
+
+div.tooltip {
+    color: #fff;
+    background-color: #333;
+    padding: .5em;
+    border-radius: 2px;
+    opacity: 0.9;
+    position: absolute;
+    font-family: 'consolas';
+}
+.hidden {
+    display: none;
+}

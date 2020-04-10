@@ -1,0 +1,72 @@
+.stats-box {
+    padding-top: 7px;
+    font-family: 'consolas';
+    text-align: center;
+    border: 1px solid #000;
+    border-radius: 3px;
+    margin-top: 10px;
+    span.title {
+        font-size: 0.9em;
+        display: block;
+    }
+    span.number {
+        font-size: 2.2em;
+    }
+}
+.update-date {
+    font-family: 'consolas';
+    margin-bottom: 0px;
+}
+.other-cases {
+    font-size: 0.9em;
+    font-family: 'consolas';
+    margin: 0px;
+    margin-top: 2px;
+}
+
+.info-container-box {
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    border-radius: 2px;
+    padding-bottom: 15px;
+    text-align: center;
+    font-family: 'consolas';
+    .row {
+        padding: 0px 20px;
+    }
+    .info-container-box-title {
+        //background-color: #ddd;
+        border-bottom: 1px dotted #ddd;
+        color: #111;
+        padding: 0px 10px;
+        width: 100%;
+        font-size: 0.8em;
+        text-align: left;
+    }
+    h2 {
+        margin-top: 15px;
+        color: #333;
+    }
+}
+
+$red: #FF083A;
+$blue: #007BFF;
+$gray: #6C757D;
+$orange: #FF9900;
+
+.active {
+    color: $red;
+    border-color: $red;
+}
+.cured {
+    color: $blue;
+    border-color: $blue;
+}
+.death {
+    color: $gray;
+    border-color: $gray;
+}
+.other {
+    color: $orange;
+    border-color: $orange;
+}
