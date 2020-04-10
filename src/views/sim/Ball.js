@@ -3,7 +3,6 @@ import {
   COLORS,
   MORTALITY_PERCENTATGE,
   TICKS_TO_RECOVER,
-  RUN,
   SPEED,
   STATES
 } from './options.js'
@@ -12,7 +11,7 @@ import { checkCollision, calculateChangeDirection } from './collisions.js'
 const diameter = BALL_RADIUS * 2
 
 export class Ball {
-  constructor ({ x, y, id, state, sketch, hasMovement }) {
+  constructor ({ x, y, id, state, sketch, hasMovement }, runState) {
     this.x = x
     this.y = y
     this.vx = sketch.random(-1, 1) * SPEED
@@ -24,25 +23,26 @@ export class Ball {
     this.hasMovement = hasMovement
     this.hasCollision = true
     this.survivor = false
+    this.runState = runState
   }
 
   checkState () {
     if (this.state === STATES.infected) {
-      if (RUN.filters.death && !this.survivor && this.timeInfected >= TICKS_TO_RECOVER / 2) {
+      if (this.runState.filters.death && !this.survivor && this.timeInfected >= TICKS_TO_RECOVER / 2) {
         this.survivor = this.sketch.random(100) >= MORTALITY_PERCENTATGE
         if (!this.survivor) {
           this.hasMovement = false
           this.state = STATES.death
-          RUN.results[STATES.infected]--
-          RUN.results[STATES.death]++
+          this.runState.results[STATES.infected]--
+          this.runState.results[STATES.death]++
           return
         }
       }
 
       if (this.timeInfected >= TICKS_TO_RECOVER) {
         this.state = STATES.recovered
-        RUN.results[STATES.infected]--
-        RUN.results[STATES.recovered]++
+        this.runState.results[STATES.infected]--
+        this.runState.results[STATES.recovered]++
       } else {
         this.timeInfected++
       }
@@ -75,8 +75,8 @@ export class Ball {
         // then, if some is infected, then we make both infected
         if (this.state === STATES.infected || state === STATES.infected) {
           this.state = otherBall.state = STATES.infected
-          RUN.results[STATES.infected]++
-          RUN.results[STATES.well]--
+          this.runState.results[STATES.infected]++
+          this.runState.results[STATES.well]--
         }
       }
     }

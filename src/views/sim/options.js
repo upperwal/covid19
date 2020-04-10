@@ -1,4 +1,4 @@
-const DEFAULT_FILTERS = {
+export const DEFAULT_FILTERS = {
   death: true,
   stayHome: true
 }
@@ -9,8 +9,8 @@ export const CANVAS_SIZE = {
 }
 
 export const DESKTOP_CANVAS_SIZE = {
-  height: 400,
-  width: 800
+  height: 550,
+  width: 430
 }
 
 export const BALL_RADIUS = 5
@@ -41,19 +41,8 @@ export const STARTING_BALLS = {
   'max-concurrent-infected': 0
 }
 
-export const RUN = {
-  filters: { ...DEFAULT_FILTERS },
-  results: { ...STARTING_BALLS },
-  tick: 0
-}
-
 export const MORTALITY_PERCENTATGE = 5
 export const SPEED = 1
 export const TOTAL_TICKS = 1600
 export const TICKS_TO_RECOVER = 500
-export const STATIC_PEOPLE_PERCENTATGE = 90
-
-export const resetRun = () => {
-  RUN.results = { ...STARTING_BALLS }
-  RUN.tick = 0
-}
+//export const STATIC_PEOPLE_PERCENTATGE = 90
