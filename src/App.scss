@@ -13,6 +13,11 @@
   src: url('./fonts/Quicksand-Medium.ttf')
 }
 
+@font-face {
+  font-family: 'consolas';
+  src: url('./fonts/Consolas.ttf')
+}
+
 html, body {
   font-family: 'quicksand-light';
   height: 100%;
@@ -45,6 +50,7 @@ html, body {
   }
   span {
       background-color: #EB5297;
+      box-shadow: 5px 0 0 #EB5297, -5px 0 0 #EB5297;
       padding: 3px 8px;
       border-radius: 4px;
       color: #fff;
