@@ -22,19 +22,21 @@ header {
       }
     }
   }
+  .header-text {
+    margin-top: 3px;
+    margin-left: 5px;
+  }
 }
 
-.language-box {
-  padding: 5px 10px;
-  background-color: #65628E;
-  border-radius: 5px;
-  color: #fff;
-}
-
-@media (max-width: 575.98px) { 
-  .language-box {
-    display: block;
-    
+@media (max-width: 991.98px) { 
+  .header-box {
+    width: 100%;
+  }
+  header {
+    .header-text {
+      margin-top: 7px;
+      margin-left: 0px;
+    }
   }
 }
 
