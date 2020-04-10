@@ -1,0 +1,57 @@
+.region-name {
+    background-color: #E93E8D;
+    // box-shadow: 5px 0 0 #E93E8D, -5px 0 0 #E93E8D;
+    color: #fff;
+    font-family: 'quicksand-light';
+    font-weight: 600;
+    padding: 3px 5px;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.cat-name {
+    background-color: #4aac6c;
+    // box-shadow: 5px 0 0 #4aac6c, -5px 0 0 #4aac6c;
+    color: #fff;
+    font-family: 'quicksand-light';
+    font-weight: 600;
+    padding: 3px 5px;
+    border-radius: 5px;
+    margin-left: 5px;
+}
+
+.funds {
+    .item-box {
+        display: flex;
+        flex-direction: column;
+        .text-item {
+            flex: 0 1 auto;
+        }
+        .link-item {
+            flex: 1 1 auto;
+            display: flex;
+        }
+        a {
+            text-decoration: none;
+            margin-top: auto;
+        }
+    }
+    button {
+        background-color: #fff;
+        border-radius: 5px;
+        font-size: 1.5em;
+        width: 100%;
+        margin-top: 20px;
+        border: 1px solid #000;
+    }
+    button:hover {
+        background-color: #333;
+        color: #fff;
+    }
+    .row-margin-top {
+        margin-top: 50px;
+    }
+    input {
+        margin-top: 20px;
+    }
+}
