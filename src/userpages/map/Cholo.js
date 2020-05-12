@@ -21,7 +21,6 @@ class Cholo extends React.Component {
 
         let mapData = this.props.mapData;
         let max = this.props.range.max
-        //console.log(mapData)
 
         var projection = d3.geoMercator()
             .center([81.966182,22.115736])
@@ -47,6 +46,7 @@ class Cholo extends React.Component {
                     return "r0-9"
                 }
                 let classNum = Math.ceil(mapData[districtName]/max*8)
+                console.log(mapData[districtName], classNum, mapData[districtName]/max*8, max)
                 return "r" + classNum + "-9";  
                 //console.log(classNum + ': ' + districtName, mapData[districtName], max)
                 //return 'gray-fill'
@@ -97,6 +97,8 @@ class Cholo extends React.Component {
         // const { t } = this.props;
 
         /* let center = [24.115736, 77.979682] */
+
+        console.log('Cholo')
         
         return (
             <>

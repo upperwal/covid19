@@ -33,7 +33,6 @@ class App extends React.Component {
   	componentDidMount() {
 		let डेटा = new Data()
 		डेटा.latest().then(d => {
-			console.log(d)
 			this.setState({
 				data: d
 			})
@@ -49,7 +48,7 @@ class App extends React.Component {
 					<Switch>
 						<Route exact 
 							path="/" 
-							render={(props) => <Home {...props} data={this.state.data.india} /> }
+							render={(props) => <Home {...props} data={this.state.data} /> }
 						/>
 						<Route path="/sd" component={SD} />
 						<Route path="/sq" component={SQ} />
