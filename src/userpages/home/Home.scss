@@ -1,15 +1,72 @@
 .content {
     margin-top: 50px;
-
-    
 }
 
 h2 {
     font-family: 'quicksand-medium';
 }
 
+.stats-container {
+    margin-top: 40px;
+    margin-bottom: 10px;
+    .stats-box {
+        padding-top: 7px;
+        font-family: 'consolas';
+        text-align: center;
+        border: 1px solid #000;
+        border-radius: 3px;
+        margin-top: 10px;
+        span.title {
+            font-size: 1.3em;
+            display: block;
+        }
+        span.number {
+            font-size: 2.2em;
+        }
+        .change-in-value {
+            font-size: 0.4em;
+            font-weight: 900;
+        }
+    }
+    .update-date {
+        font-family: 'consolas';
+        margin-bottom: 0px;
+    }
+    .other-cases {
+        font-size: 0.9em;
+        font-family: 'consolas';
+        margin: 0px;
+        margin-top: 2px;
+    }
+
+    $red: #EB5297;
+    $blue: #194b80;
+    $gray: #6C757D;
+    $orange: #FF9900;
+
+    .active {
+        color: $red;
+        border-color: $red;
+    }
+    .cured {
+        color: $blue;
+        border-color: $blue;
+    }
+    .death {
+        color: $gray;
+        border-color: $gray;
+    }
+    .other {
+        color: $orange;
+        border-color: $orange;
+    }
+}
+
+
+
+
 .prevent-box {
-    margin: 90px 0px;
+    margin: 90px 0px 30px 0px;
     text-align: center;
 
     h1 {
@@ -68,5 +125,94 @@ code {
         .minor-image {
             width: 58%;
         }
+    }
+}
+
+.summary {
+    margin-bottom: 50px;
+    border-bottom: 1px dotted #ccc;
+    font-size: 1.3em;
+    line-height: 2.2em;
+    .consolas {
+        font-family: 'consolas';
+    }
+    .heading {
+        display: block;
+        margin: 10px 0px;
+        margin-bottom: 24px;
+        h3 {
+            display: inline;
+            color: #777;
+            padding-left: 10px;
+            padding-bottom: 12px;
+            padding-right: 60px;
+            /* border-left: 2px solid #EB5297; */
+            border-bottom: 2px solid #EB5297;
+            color: #EB5297;
+        }
+    }
+    ul {
+        list-style-type: none;
+        padding: 0px;
+        li {
+            text-indent: 0px;
+            margin-bottom: 30px;
+            line-height: 36px;
+        }
+        li:before {
+            content: '- ';
+        }
+    }
+    .affected-region {
+        margin-top: 30px;
+        label {
+            display: block;
+            font-size: 0.7em;
+            line-height: 20px;
+            margin: 0px;
+            margin-top: 10px;
+            font-family: 'consolas';
+        }
+    }
+}
+
+.name-value-container {
+    display: inline-block;
+    margin: 0px 8px 0px 0px;
+    font-size: 0.8em;
+    line-height: 0.4em;
+    .value {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        padding: 5px 10px;
+        font-weight: 900;
+        position: relative;
+    }
+    .name {
+        color: #fff;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        padding: 5px 10px;
+        font-weight: 900;
+    }
+}
+
+.theme-red {
+    .value {
+        border: 1px solid #EB5297;
+    }
+    .name {
+        border: 1px solid #EB5297;
+        background-color: #EB5297;
+    }
+}
+
+.theme-blue {
+    .value {
+        border: 1px solid #194b80;
+    }
+    .name {
+        border: 1px solid #194b80;
+        background-color: #194b80;
     }
 }

@@ -10,7 +10,7 @@ class JanataCurfewComponent extends React.Component {
             <>
                 <div className="imp-message">
                     <h1>{t('sd.jan_curfew_message')}</h1>
-                    <span>22nd March 07:00 AM to 09:00 PM</span>
+                    {<span>{t('sd.jan_curfew_submessage')}</span>}
                 </div>
             </>
         );

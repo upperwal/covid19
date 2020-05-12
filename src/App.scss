@@ -13,6 +13,11 @@
   src: url('./fonts/Quicksand-Medium.ttf')
 }
 
+@font-face {
+  font-family: 'consolas';
+  src: url('./fonts/Consolas.ttf')
+}
+
 html, body {
   font-family: 'quicksand-light';
   height: 100%;
@@ -45,9 +50,53 @@ html, body {
   }
   span {
       background-color: #EB5297;
+      box-shadow: 5px 0 0 #EB5297, -5px 0 0 #EB5297;
       padding: 3px 8px;
       border-radius: 4px;
       color: #fff;
-      font-size: 1em;
+      font-size: 1.5em;
   }
+}
+
+.highlight-red {
+  background-color: #EB5297;
+  box-shadow: 3px 0 0 #EB5297, -3px 0 0 #EB5297;
+  color: #fff;
+}
+
+.highlight-test-red {
+  color: #EB5297;
+  font-weight: 900;
+}
+
+.highlight-lightred {
+  background-color: rgba(235, 82, 151, 0.568);
+  box-shadow: 3px 0 0 rgba(235, 82, 151, 0.568), -3px 0 0 rgba(235, 82, 151, 0.568);
+  color: #333;
+}
+
+.highlight-purple {
+  background-color: #a053b9;
+  color: #fff;
+}
+
+.highlight-blue {
+  background-color: #194b80;
+  box-shadow: 3px 0 0 #194b80, -3px 0 0 #194b80;
+  color: #fff;
+}
+
+.highlight {
+  padding: 3px 3px;
+  border-radius: 4px;
+}
+
+.highlight-bold {
+  font-weight: 900;
+}
+
+.highlight-inverted-red {
+  border: 1px solid #EB5297;
+  padding: 2px 5px;
+  color: #EB5297;
 }

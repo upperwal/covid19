@@ -4,10 +4,10 @@
         "what_is_corona_answer": "Coronaviruses are a large family of viruses which may cause illness in animals or humans.  In humans, several coronaviruses are known to cause respiratory infections ranging from the common cold to more severe diseases such as Middle East Respiratory Syndrome (MERS) and Severe Acute Respiratory Syndrome (SARS).",
         "what_is_corona_punch": "The most recently discovered coronavirus causes coronavirus disease COVID-19.",
         "how_to_prevent_infection": "How to prevent getting infected?",
-        "handwash": "Wash your hands frequently for atleast 20 seconds",
+        "handwash": "Wash your hands frequently for at least 20 seconds",
         "cover_face": "Always cover your face while snizzing",
         "dont_touch_face": "Do not touch your face with your hand",
-        "handrub": "Use an alcohol bases sanitiser when handwash is not an option",
+        "handrub": "Use an alcohol based sanitiser when handwash is not an option",
         "social_distancing": "Practice home quarantine and social distancing",
         "mask": "Wear a mask if you have cold or flu like symptoms",
         "resources": {
@@ -22,9 +22,22 @@
         "what_is_sd_ans-2-opt2": "Closing schools or switching to online classes",
         "what_is_sd_ans-2-opt3": "Visiting loved ones by electronic devices instead of in person",
         "what_is_sd_ans-2-opt4": "Cancelling or postponing conferences and large meetings",
-        "jan_curfew_message": "Janata Curfew: It's a voluntary effort of self quarantine to flight spread of coronavirus. Stay Home. Stay Safe.",
+        "jan_curfew_message": "Janata Curfew: It's a voluntary effort of self quarantine to fight the spread of coronavirus. Stay Home. Stay Safe.",
+        "jan_curfew_submessage": "Everyone is advised to stay indoors and practice self quarantine.",
         "resources": {
             "what_is_video": "https://www.youtube.com/embed/2WCtGFNENYU"
         }
+    },
+    "sq": {
+        "what_is_sq": "What is Self Quarantine?",
+        "what_is_sq_ans": "People who have been exposed to the new coronavirus and who are at risk for coming down with COVID-19 might practice self-quarantine. Health experts recommend that self-quarantine lasts 14 days. Two weeks provides enough time for them to know whether or not they will become ill and be contagious to other people.",
+        "what_is_sq_ans-2": "You might be asked to practice self-quarantine if you have recently returned from traveling to a part of the country or the world where COVID-19 is spreading rapidly, or if you have knowingly been exposed to an infected person.",
+        "involves": "Self-quarantine involves",
+        "involves-1": "Using standard hygiene and washing hands frequently",
+        "involves-2": "Not sharing things like towels and utensils",
+        "involves-3": "Staying at home",
+        "involves-4": "Not having visitors",
+        "involves-5": "Staying at least 6 feet away from other people in your household",
+        "end_msg": "Once your quarantine period has ended, if you do not have symptoms, follow your doctor’s instructions on how to return to your normal routine."
     }
 }

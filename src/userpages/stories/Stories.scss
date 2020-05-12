@@ -1,0 +1,21 @@
+.stories {
+    .stories-item {
+        text-align: justify;
+        .message {
+            margin-top: 10px;
+            height: 310px;
+            overflow: scroll;
+            margin-bottom: 5px;
+            font-size: 1.2em;
+        }
+        .MuiChip-root {
+            margin-right: 5px;
+        }
+    }
+    h4 {
+        font-weight: 900;
+    }
+    .stories-section {
+        margin-top: 40px;
+    }
+}
