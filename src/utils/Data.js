@@ -7,7 +7,6 @@ class Data {
         let डेटालेक = new dlake.Datalake('/Covid19District', '1cDpdkE2Qvq26OvUAxkXswmHcXEPUBS6Wcig6ERQvPrQ')
         return new Promise((resolve, reject) => {
             डेटालेक.latest(3).then(res => {
-                console.log(res)
 
                 let p = new Pipeline()
                 p.add('mapping_past_data', (args) => {
@@ -36,7 +35,6 @@ class Data {
                     })
 
                     for(let i=0; i<sortupdate.length; i++) {
-                        console.log()
                         if(sortupdate[i].activePositiveCases >= 0) {
                             break
                         }
