@@ -29,6 +29,13 @@ class HomeComponent extends React.Component {
         }
     }
 
+    getRandomInt(min, max){
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+
     mostAffectedView(statesList, stateCodeNameMap, theme, label) {
         if(statesList === undefined) {
             return ''
@@ -47,7 +54,7 @@ class HomeComponent extends React.Component {
         return res
     }
 
-    updatesView(mostAffected, stateCodeNameMap, dataDiff, indiaStats, worldStats, diffTimestamp, recoveryPath) {
+    updatesView(mostAffected, stateCodeNameMap, dataDiff, indiaStats, worldStats, diffTimestamp, recoveryPath, worstHit) {
         if(mostAffected === undefined) {
             return ''
         }
@@ -59,7 +66,7 @@ class HomeComponent extends React.Component {
         let doublingRate = (rateTimePerCase*indiaStats.totalPositiveCases/24).toFixed(1)
         let cureDeathRatio = (indiaStats.curedCases/indiaStats.deathCases).toFixed(1)
         let cureDeathRatioWorld = (worldStats.curedCases/worldStats.deathCases).toFixed(1)
-        console.log(mostAffected, stateCodeNameMap, dataDiff, indiaStats, worldStats, recoveryPath)
+        console.log(mostAffected, stateCodeNameMap, dataDiff, indiaStats, worldStats, recoveryPath, worstHit)
 
         let recoveryPathView = []
         recoveryPath.forEach((s, idx) => {
@@ -70,8 +77,25 @@ class HomeComponent extends React.Component {
             } */
             recoveryPathView.push(
                 <div key={idx} className={'name-value-container theme-blue'}>
-                    <span className="value">{dataDiff[s].activePositiveCases}</span>
-                    <span className="name">{stateCodeNameMap[s]}</span>
+                    <span className="value">{s.activePositiveCases}</span>
+                    <span className="name">{stateCodeNameMap[s.state_code]}</span>
+                </div>
+            )
+            //recoveryPathView.push(<span key={idx}><span key={idx} className="highlight-test-red">{stateCodeNameMap[s]}</span> <span className="highlight highlight-inverted-red highlight-bold">{dataDiff[s].activePositiveCases}</span></span>)
+            
+        })
+
+        let worstHitView = []
+        worstHit.forEach((s, idx) => {
+            if(idx === worstHit.length - 1) {
+                worstHitView.push(<span key="and">{' and '}</span>)
+            }/*  else {
+                recoveryPathView.push(<span key={'comma-' + idx}>{', '}</span>)
+            } */
+            worstHitView.push(
+                <div key={idx} className={'name-value-container theme-red'}>
+                    <span className="value">{s.activePositiveCases}</span>
+                    <span className="name">{stateCodeNameMap[s.state_code]}</span>
                 </div>
             )
             //recoveryPathView.push(<span key={idx}><span key={idx} className="highlight-test-red">{stateCodeNameMap[s]}</span> <span className="highlight highlight-inverted-red highlight-bold">{dataDiff[s].activePositiveCases}</span></span>)
@@ -89,6 +113,9 @@ class HomeComponent extends React.Component {
                     </li>
                     <li>
                         States like {recoveryPathView} have shown reduction in active cases and hopefully are on a path to normality.
+                    </li>
+                    <li>
+                        {worstHitView} have shown the highest increment in the active cases in the past {(diffTimestamp / (3600)).toFixed(0)} hours.
                     </li>
                     <li>India till date has <span className="highlight-test-red">{indiaStats.activePositiveCases} active cases</span> which is <span className="highlight highlight-red highlight-bold">{(indiaStats.activePositiveCases/worldActive*100).toFixed(2)} % of the worldwide active cases.</span></li>
                     <li>
@@ -116,6 +143,7 @@ class HomeComponent extends React.Component {
         let stateCodeNameMap;
         let worldStats = {};
         let recoveryPath = {};
+        let worstHit={};
         //let statesStats;
         
         if(this.props.data.timestamp !== undefined) {
@@ -134,6 +162,10 @@ class HomeComponent extends React.Component {
             stateCodeNameMap = this.props.data.stateCode
             worldStats = this.props.data.worldData
             recoveryPath = this.props.data.improved
+            worstHit = this.props.data.worstHit
+
+            
+            
             //statesStats = this.props.data.statesStats
             console.log(diffCountry)
         }
@@ -200,20 +232,23 @@ class HomeComponent extends React.Component {
                             data,
                             worldStats,
                             diffTimestamp,
-                            recoveryPath
+                            recoveryPath,
+                            worstHit
                         )}
                     </div>
 
                     {/* <ChartRace 
                         data={[
-                            { id: 0, title: 'Ayfonkarahisar', value: 42, color: '#50c4fe' },
-                            { id: 1, title: 'Kayseri', value: 38, color: '#3fc42d' },
-                            { id: 2, title: 'Muğla', value: 76, color: '#c33178' },
-                            { id: 3, title: 'Uşak', value: 30, color: '#423bce' },
-                            { id: 4, title: 'Sivas', value: 58, color: '#c8303b' },
-                            { id: 5, title: 'Konya', value: 16, color: '#2c2c2c' }
+                            { id: '0', title: 'Ayfonkarahisar', value: this.getRandomInt(10, 500), color: '#50c4fe' },
+                            { id: 1, title: 'Kayseri', value: this.getRandomInt(10, 500), color: '#3fc42d' },
+                            { id: 2, title: 'Muğla', value: this.getRandomInt(10, 500), color: '#c33178' },
+                            { id: 3, title: 'Uşak', value: this.getRandomInt(10, 500), color: '#423bce' },
+                            { id: 4, title: 'Sivas', value: this.getRandomInt(10, 500), color: '#c8303b' },
+                            { id: 5, title: 'Konya', value: this.getRandomInt(10, 500), color: '#2c2c2c' }
                         ]}
-                        backgroundColor="#ffffffff"
+                        backgroundColor="#fffffff8"
+                        width = "700"
+                        valueStyle={{ font: 'normal 400 11px Arial', color: '#FF0000' }}
                     /> */}
 
                     <div className="row">
