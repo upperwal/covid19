@@ -14,19 +14,37 @@ class Data {
                         pastMap: this.mapData(args[1].item),
                         latestData: args[0].item
                     }
+                    
                 }).add('diff_agg', (args) => {
                     return this.diffAndAggData(args.pastMap, args.latestData)
                 }).add('improved_data', args => {
                     let diff = args.diffStats
                     let improved = []
+                    let sortupdate=[]
                     Object.keys(diff).forEach(k => {
-                        if(diff[k].activePositiveCases < 0) {
-                            improved.push(k)
+                        // if(diff[k].activePositiveCases < 0) {
+                        //     improved.push(k)
+                        // }
+                        if(k === 'india' || k === 'timestamp') {
+                            return
                         }
+                        sortupdate.push({...diff[k], 'state_code': k})
                     })
+                    sortupdate.sort((a, b) => {
+                        return a.activePositiveCases - b.activePositiveCases
+                    })
+
+                    for(let i=0; i<sortupdate.length; i++) {
+                        if(sortupdate[i].activePositiveCases >= 0) {
+                            break
+                        }
+                        improved.push(sortupdate[i])
+                    }
                     return {
                         ...args,
-                        improved: improved
+                        improved: improved,
+                        worstHit: sortupdate.reverse().slice(0, 6)
+
                     }
                 }).add('static_data', args => {
                     return {
@@ -37,6 +55,7 @@ class Data {
                 })
                 resolve(p.execute(res))
             })
+            
         })
     }
 
@@ -48,6 +67,7 @@ class Data {
         d.countries[0].states.forEach(s => {
             res[s.code] = s.stats
         })
+        console.log(res)
 
         return res
     }
