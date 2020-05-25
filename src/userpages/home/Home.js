@@ -70,8 +70,10 @@ class HomeComponent extends React.Component {
 
         let recoveryPathView = []
         recoveryPath.forEach((s, idx) => {
-            if(idx === recoveryPath.length - 1) {
-                recoveryPathView.push(<span key="and">{' and '}</span>)
+            if(recoveryPath.length!==1){
+                if(idx === recoveryPath.length - 1) {
+                    recoveryPathView.push(<span key="and">{' and '}</span>)
+                }
             }/*  else {
                 recoveryPathView.push(<span key={'comma-' + idx}>{', '}</span>)
             } */
@@ -87,8 +89,10 @@ class HomeComponent extends React.Component {
 
         let worstHitView = []
         worstHit.forEach((s, idx) => {
-            if(idx === worstHit.length - 1) {
-                worstHitView.push(<span key="and">{' and '}</span>)
+            if(worstHit.length!==1){
+                if(idx === worstHit.length - 1) {
+                    worstHitView.push(<span key="and">{' and '}</span>)
+                }
             }/*  else {
                 recoveryPathView.push(<span key={'comma-' + idx}>{', '}</span>)
             } */
