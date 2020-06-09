@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { withTranslation } from 'react-i18next';
-import ChartRace from 'react-chart-race';
+//import ChartRace from 'react-chart-race';
 
 import CurfewMessage from '../../views/CurfewMessage'
 
@@ -132,6 +132,29 @@ class HomeComponent extends React.Component {
         )
     }
 
+    // radar() {
+    //     raderData = {
+    //         'lable': [],
+    //         'datasets': [
+    //             {
+    //                 label: 'Today',
+    //                 backgroundColor: 'rgba(179,181,198,0.2)',
+    //                 borderColor: 'rgba(179,181,198,1)',
+    //                 pointBackgroundColor: 'rgba(179,181,198,1)',
+    //                 pointBorderColor: '#fff',
+    //                 pointHoverBackgroundColor: '#fff',
+    //                 pointHoverBorderColor: 'rgba(179,181,198,1)',
+    //                 data: []
+    //             }
+    //         ]
+    //     }
+
+    //     sortedData=[]
+    //     latestData.forEach(ele => {
+    //         sortedData.push(latestData[''])
+    //     })
+    // }
+
     render() {
         const { t } = this.props;
 
@@ -144,6 +167,8 @@ class HomeComponent extends React.Component {
         let worldStats = {};
         let recoveryPath = {};
         let worstHit={};
+        let latestStats = {}
+        let pastStats = {}
         //let statesStats;
         
         if(this.props.data.timestamp !== undefined) {
@@ -163,11 +188,13 @@ class HomeComponent extends React.Component {
             worldStats = this.props.data.worldData
             recoveryPath = this.props.data.improved
             worstHit = this.props.data.worstHit
+            latestStats = this.props.data.statesStats
+            pastStats = this.props.data.pastMap
 
+            console.log(latestStats)
             
             
             //statesStats = this.props.data.statesStats
-            console.log(diffCountry)
         }
         let updateDate = new Date(data.timestamp*1000)
         
