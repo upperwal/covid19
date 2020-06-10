@@ -132,28 +132,29 @@ class HomeComponent extends React.Component {
         )
     }
 
-    // radar() {
-    //     raderData = {
-    //         'lable': [],
-    //         'datasets': [
-    //             {
-    //                 label: 'Today',
-    //                 backgroundColor: 'rgba(179,181,198,0.2)',
-    //                 borderColor: 'rgba(179,181,198,1)',
-    //                 pointBackgroundColor: 'rgba(179,181,198,1)',
-    //                 pointBorderColor: '#fff',
-    //                 pointHoverBackgroundColor: '#fff',
-    //                 pointHoverBorderColor: 'rgba(179,181,198,1)',
-    //                 data: []
-    //             }
-    //         ]
-    //     }
+    radar(latestStats) {
+        let raderData = {
+            'lable': [],
+            'datasets': [
+                {
+                    label: 'Today',
+                    backgroundColor: 'rgba(179,181,198,0.2)',
+                    borderColor: 'rgba(179,181,198,1)',
+                    pointBackgroundColor: 'rgba(179,181,198,1)',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: 'rgba(179,181,198,1)',
+                    data: []
+                }
+            ]
+        }
 
-    //     sortedData=[]
-    //     latestData.forEach(ele => {
-    //         sortedData.push(latestData[''])
-    //     })
-    // }
+        let sortedData = {}
+        Object.keys(latestStats).forEach(state => {
+            sortedData[state['code']] = state['activePositiveCases']
+        })
+        console.log(Object.keys(latestStats))
+    }
 
     render() {
         const { t } = this.props;
@@ -192,7 +193,7 @@ class HomeComponent extends React.Component {
             pastStats = this.props.data.pastMap
 
             console.log(latestStats)
-            
+            this.radar(latestStats)
             
             //statesStats = this.props.data.statesStats
         }
