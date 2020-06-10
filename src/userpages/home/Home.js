@@ -151,8 +151,9 @@ class HomeComponent extends React.Component {
 
         let sortedData = {}
         Object.keys(latestStats).forEach(state => {
-            sortedData[state['code']] = state['activePositiveCases']
+            sortedData[state['code']] = latestStats['code['activePositiveCases']
         })
+
         console.log(Object.keys(latestStats))
     }
 
