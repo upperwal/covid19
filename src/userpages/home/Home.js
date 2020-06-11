@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { withTranslation } from 'react-i18next';
+import {Pie} from 'react-chartjs-2';
 //import ChartRace from 'react-chart-race';
 
 import CurfewMessage from '../../views/CurfewMessage'
@@ -7,6 +8,7 @@ import CurfewMessage from '../../views/CurfewMessage'
 import './Home.scss'
 // import Content from './mk.md'
 
+import stateColour from './state_code_to_colour.json'
 import coverFace from '../../images/cover_face.svg'
 import handwash from '../../images/handwash.svg'
 import dTouchFace from '../../images/dont_touch_face.svg'
@@ -132,29 +134,68 @@ class HomeComponent extends React.Component {
         )
     }
 
-    radar(latestStats) {
-        let raderData = {
-            'lable': [],
+    
+    radar(latestStats, stateCodeNameMap) {
+
+        let pieData1 = {
+            'labels': [],
             'datasets': [
                 {
-                    label: 'Today',
-                    backgroundColor: 'rgba(179,181,198,0.2)',
-                    borderColor: 'rgba(179,181,198,1)',
-                    pointBackgroundColor: 'rgba(179,181,198,1)',
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: 'rgba(179,181,198,1)',
-                    data: []
+                    data: [],
+                    backgroundColor: [],
+                    hoverBackgroundColor: []
                 }
             ]
         }
-
-        let sortedData = {}
+        let pieData2 = {
+            'labels': [],
+            'datasets': [
+                {
+                    data: [],
+                    backgroundColor: [],
+                    hoverBackgroundColor: []
+                }
+            ]
+        }
+        let sortedData =[]
         Object.keys(latestStats).forEach(state => {
-            sortedData[state['code']] = latestStats['code['activePositiveCases']
+            sortedData.push({
+                'id': state,
+                'value': latestStats[state]['totalPositiveCases'] || 0
+            })
         })
+        sortedData.sort((a,b) => {
+            return b.value - a.value
+        })
+        for(let i=0; i<8; ++i){
+            pieData1['labels'].push(stateCodeNameMap[sortedData[i]['id']])
+            pieData1['datasets'][0]['data'].push(sortedData[i]['value'])
+            pieData1['datasets'][0]['backgroundColor'].push(stateColour[sortedData[i]['id']])
+            pieData1['datasets'][0]['hoverBackgroundColor'].push(stateColour[sortedData[i]['id']])
+        }
 
-        console.log(Object.keys(latestStats))
+        sortedData =[]
+        Object.keys(latestStats).forEach(state => {
+            sortedData.push({
+                'id': state,
+                'value': latestStats[state]['activePositiveCases'] || 0
+            })
+        })
+        sortedData.sort((a,b) => {
+            return b.value - a.value
+        })
+        for(let i=0; i<8; ++i){
+            pieData2['labels'].push(stateCodeNameMap[sortedData[i]['id']])
+            pieData2['datasets'][0]['data'].push(sortedData[i]['value'])
+            pieData2['datasets'][0]['backgroundColor'].push(stateColour[sortedData[i]['id']])
+            pieData2['datasets'][0]['hoverBackgroundColor'].push(stateColour[sortedData[i]['id']])
+        }
+
+        let radarReturnArray = []
+        radarReturnArray.push(pieData1)
+        radarReturnArray.push(pieData2)
+    
+        return radarReturnArray
     }
 
     render() {
@@ -170,7 +211,8 @@ class HomeComponent extends React.Component {
         let recoveryPath = {};
         let worstHit={};
         let latestStats = {}
-        let pastStats = {}
+        let pie1 = {}
+        let pie2 = {}
         //let statesStats;
         
         if(this.props.data.timestamp !== undefined) {
@@ -191,14 +233,16 @@ class HomeComponent extends React.Component {
             recoveryPath = this.props.data.improved
             worstHit = this.props.data.worstHit
             latestStats = this.props.data.statesStats
-            pastStats = this.props.data.pastMap
 
-            console.log(latestStats)
-            this.radar(latestStats)
+            console.log(stateCodeNameMap)
+            pie1= this.radar(latestStats, stateCodeNameMap)[0]
+            pie2= this.radar(latestStats, stateCodeNameMap)[1]
+            
             
             //statesStats = this.props.data.statesStats
         }
         let updateDate = new Date(data.timestamp*1000)
+
         
         return (
             <>
@@ -264,6 +308,23 @@ class HomeComponent extends React.Component {
                             recoveryPath,
                             worstHit
                         )}
+                    </div>
+
+                    <div className="row stats-viz">
+                        <div className="col-md-6">
+                            <h4 className="center">Total Cases </h4>
+                            <h6 className="center"> 8 States with most cases </h6>
+                            <Pie data={pie1} />
+                        </div>
+                        <div className="col-md-6">
+                            <h4 className="center">Active Positive Cases</h4>
+                            <h6 className="center"> 8 States with most cases </h6>
+                            <Pie data={pie2} />
+                        </div>
+                        {/* <div className="col-md-4">
+                            <h4>PIE </h4>
+                            <Pie data={pie1} />
+                        </div> */}
                     </div>
 
                     {/* <ChartRace 
