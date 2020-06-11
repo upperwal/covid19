@@ -1,7 +1,6 @@
 import React, { Suspense } from 'react';
 import { withTranslation } from 'react-i18next';
 import {Pie} from 'react-chartjs-2';
-//import ChartRace from 'react-chart-race';
 
 import CurfewMessage from '../../views/CurfewMessage'
 
