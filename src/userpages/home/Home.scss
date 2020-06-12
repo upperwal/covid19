@@ -129,7 +129,7 @@ code {
 }
 
 .summary {
-    margin-bottom: 50px;
+    margin-bottom: 20px;
     border-bottom: 1px dotted #ccc;
     font-size: 1.3em;
     line-height: 2.2em;
@@ -219,6 +219,11 @@ code {
 
 .stats-viz {
     margin-bottom: 60px;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 30px;
+    .viz-chart {
+        margin-top: 30px;
+    }
 }
 
 .center {

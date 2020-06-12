@@ -310,12 +310,12 @@ class HomeComponent extends React.Component {
                     </div>
 
                     <div className="row stats-viz">
-                        <div className="col-md-6">
+                        <div className="col-md-6 viz-chart">
                             <h4 className="center">Total Cases </h4>
                             <h6 className="center"> 8 States with most cases </h6>
                             <Pie data={pie1} />
                         </div>
-                        <div className="col-md-6">
+                        <div className="col-md-6 viz-chart">
                             <h4 className="center">Active Positive Cases</h4>
                             <h6 className="center"> 8 States with most cases </h6>
                             <Pie data={pie2} />
