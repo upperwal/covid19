@@ -1,12 +1,13 @@
 import React, { Suspense } from 'react';
 import { withTranslation } from 'react-i18next';
-import ChartRace from 'react-chart-race';
+import {Pie} from 'react-chartjs-2';
 
 import CurfewMessage from '../../views/CurfewMessage'
 
 import './Home.scss'
 // import Content from './mk.md'
 
+import stateColour from './state_code_to_colour.json'
 import coverFace from '../../images/cover_face.svg'
 import handwash from '../../images/handwash.svg'
 import dTouchFace from '../../images/dont_touch_face.svg'
@@ -132,6 +133,70 @@ class HomeComponent extends React.Component {
         )
     }
 
+    
+    radar(latestStats, stateCodeNameMap) {
+
+        let pieData1 = {
+            'labels': [],
+            'datasets': [
+                {
+                    data: [],
+                    backgroundColor: [],
+                    hoverBackgroundColor: []
+                }
+            ]
+        }
+        let pieData2 = {
+            'labels': [],
+            'datasets': [
+                {
+                    data: [],
+                    backgroundColor: [],
+                    hoverBackgroundColor: []
+                }
+            ]
+        }
+        let sortedData =[]
+        Object.keys(latestStats).forEach(state => {
+            sortedData.push({
+                'id': state,
+                'value': latestStats[state]['totalPositiveCases'] || 0
+            })
+        })
+        sortedData.sort((a,b) => {
+            return b.value - a.value
+        })
+        for(let i=0; i<8; ++i){
+            pieData1['labels'].push(stateCodeNameMap[sortedData[i]['id']])
+            pieData1['datasets'][0]['data'].push(sortedData[i]['value'])
+            pieData1['datasets'][0]['backgroundColor'].push(stateColour[sortedData[i]['id']])
+            pieData1['datasets'][0]['hoverBackgroundColor'].push(stateColour[sortedData[i]['id']])
+        }
+
+        sortedData =[]
+        Object.keys(latestStats).forEach(state => {
+            sortedData.push({
+                'id': state,
+                'value': latestStats[state]['activePositiveCases'] || 0
+            })
+        })
+        sortedData.sort((a,b) => {
+            return b.value - a.value
+        })
+        for(let i=0; i<8; ++i){
+            pieData2['labels'].push(stateCodeNameMap[sortedData[i]['id']])
+            pieData2['datasets'][0]['data'].push(sortedData[i]['value'])
+            pieData2['datasets'][0]['backgroundColor'].push(stateColour[sortedData[i]['id']])
+            pieData2['datasets'][0]['hoverBackgroundColor'].push(stateColour[sortedData[i]['id']])
+        }
+
+        let radarReturnArray = []
+        radarReturnArray.push(pieData1)
+        radarReturnArray.push(pieData2)
+    
+        return radarReturnArray
+    }
+
     render() {
         const { t } = this.props;
 
@@ -144,6 +209,9 @@ class HomeComponent extends React.Component {
         let worldStats = {};
         let recoveryPath = {};
         let worstHit={};
+        let latestStats = {}
+        let pie1 = {}
+        let pie2 = {}
         //let statesStats;
         
         if(this.props.data.timestamp !== undefined) {
@@ -163,13 +231,17 @@ class HomeComponent extends React.Component {
             worldStats = this.props.data.worldData
             recoveryPath = this.props.data.improved
             worstHit = this.props.data.worstHit
+            latestStats = this.props.data.statesStats
 
+            console.log(stateCodeNameMap)
+            pie1= this.radar(latestStats, stateCodeNameMap)[0]
+            pie2= this.radar(latestStats, stateCodeNameMap)[1]
             
             
             //statesStats = this.props.data.statesStats
-            console.log(diffCountry)
         }
         let updateDate = new Date(data.timestamp*1000)
+
         
         return (
             <>
@@ -235,6 +307,23 @@ class HomeComponent extends React.Component {
                             recoveryPath,
                             worstHit
                         )}
+                    </div>
+
+                    <div className="row stats-viz">
+                        <div className="col-md-6">
+                            <h4 className="center">Total Cases </h4>
+                            <h6 className="center"> 8 States with most cases </h6>
+                            <Pie data={pie1} />
+                        </div>
+                        <div className="col-md-6">
+                            <h4 className="center">Active Positive Cases</h4>
+                            <h6 className="center"> 8 States with most cases </h6>
+                            <Pie data={pie2} />
+                        </div>
+                        {/* <div className="col-md-4">
+                            <h4>PIE </h4>
+                            <Pie data={pie1} />
+                        </div> */}
                     </div>
 
                     {/* <ChartRace 

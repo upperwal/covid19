@@ -132,6 +132,7 @@ class Data {
             worstAffectedStates: worstAffectedStates,
             leastAffectStates: leastAffectStates,
             statesStats: statesStats,
+            pastMap: pastMap,
             diffStats: diffStats,
             countryStats: latestData.countries[0].stats,
             timestamp: parseInt(latestData.header.timestamp)
