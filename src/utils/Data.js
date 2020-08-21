@@ -108,8 +108,8 @@ class Data {
             return (a[1] - b[1]) 
         })
 
-        worstAffectedStates = activePosStateArr.slice(activePosStateArr.length - 4).reverse()
-        leastAffectStates = activePosStateArr.slice(0, 4)
+        worstAffectedStates = activePosStateArr.slice(activePosStateArr.length - 6).reverse()
+        leastAffectStates = activePosStateArr.slice(0, 6)
 
         /* let min = activePosStateArr[0][1]
         for(let i=0; i < activePosStateArr.length; i++) {
@@ -132,6 +132,7 @@ class Data {
             worstAffectedStates: worstAffectedStates,
             leastAffectStates: leastAffectStates,
             statesStats: statesStats,
+            pastMap: pastMap,
             diffStats: diffStats,
             countryStats: latestData.countries[0].stats,
             timestamp: parseInt(latestData.header.timestamp)
