@@ -6,7 +6,7 @@ class FooterComponent extends React.Component {
     render() {
         return (
             <footer>
-                
+                A volunteer driven initiative
             </footer>
             
         )

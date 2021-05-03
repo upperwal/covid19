@@ -1,0 +1,58 @@
+@import "../../Constants.scss";
+
+.Fraud {
+    text-align: center;
+    padding: 100px;
+    color: $theme-color;
+    h1 {
+        margin-top: 40px 0;
+        font-size: 3em;
+    }
+    .search-bar {
+        button.MuiButtonBase-root {
+            height: 100%;
+            padding: 0px 30px;
+        }
+    }
+    .click-link {
+        display: inline-block;
+        color: $theme-color;
+        margin: 0px 5px;
+        width: fit-content;
+        text-decoration: underline;
+    }
+    .click-link:hover {
+        color: $theme-secondary;
+        cursor: pointer;
+    }
+    .fraud-logo {
+        width: 100px;
+        margin: 40px 0;
+    }
+    .result-summary {
+        margin: 20px 0;
+        font-size: 1.2em;
+        border-radius: 5px;
+        padding: 10px 0;
+    }
+    .result-summary-fraud {
+        color: $theme-secondary;
+        background-color: $theme-secondary-light;
+        border: 1.3px solid $theme-secondary;
+    }
+    .result-summary-ok {
+        color: $cool-green;
+        background-color: $cool-green-light;
+        border: 1.3px solid $cool-green;
+    }
+    .result-list {
+        margin: 20px 0;
+        .search-list-item {
+            margin: 20px 0;
+        }
+    }
+    h6 {
+        margin: 50px 0;
+
+    }
+}

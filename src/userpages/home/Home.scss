@@ -6,6 +6,36 @@ h2 {
     font-family: 'quicksand-medium';
 }
 
+.Home {
+    text-align: center;
+    padding-top: 100px;
+    img {
+        width: 100px;
+    }
+    .seek-container {
+        margin-top: 100px;
+        .seek-message {
+            font-size: 3em;
+            color: #3f51b5;
+            margin-bottom: 30px;
+        }
+        #seek-input {
+            margin: 10px;
+        }
+        .chip-container {
+            margin: 20px 0px;
+            width: 100%;
+        }
+        .MuiChip-root {
+            margin: 3px 5px;
+        }
+    }
+    .location-identification-container {
+        margin-top: 60px;
+    }
+    
+}
+
 .stats-container {
     margin-top: 40px;
     margin-bottom: 10px;

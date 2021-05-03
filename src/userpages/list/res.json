@@ -1,0 +1,94 @@
+{
+    "o2": [
+        {
+            "name": "Sanjeevni Hospital",
+            "last_updated": "",
+            "is_verified": true,
+            "stock_status": "available",
+            "stock_available": 10,
+            "poc": [
+                {
+                    "name": "Abhishek",
+                    "phone": "9999647130"
+                },
+                {
+                    "name": "Some",
+                    "phone": "9999647130"
+                }
+            ],
+            "location": {
+                "type": "Point",
+                "coordinates": [28.461848, 77.022073]
+            }
+        },
+        {
+            "name": "ABC Hospital",
+            "last_updated": "",
+            "is_verified": true,
+            "stock_status": "available",
+            "stock_available": 10,
+            "poc": [
+                {
+                    "name": "Abhishek",
+                    "phone": "9999647130"
+                }
+            ],
+            "location": {
+                "type": "Point",
+                "coordinates": [28.453397, 77.015125]
+            }
+        },
+        {
+            "name": "Sanjeevni Hospital",
+            "last_updated": "",
+            "is_verified": true,
+            "stock_status": "available",
+            "stock_available": 10,
+            "poc": [
+                {
+                    "name": "Abhishek",
+                    "phone": "9999647130"
+                }
+            ],
+            "location": {
+                "type": "Point",
+                "coordinates": [28.445233, 77.042032]
+            }
+        },
+        {
+            "name": "Sanjeevni Hospital",
+            "last_updated": "",
+            "is_verified": true,
+            "stock_status": "available",
+            "stock_available": 10,
+            "poc": [
+                {
+                    "name": "Abhishek",
+                    "phone": "9999647130"
+                }
+            ],
+            "location": {
+                "type": "Point",
+                "coordinates": [28.465682, 77.046264]
+            }
+        },
+        {
+            "name": "Sanjeevni Hospital",
+            "last_updated": "",
+            "is_verified": true,
+            "stock_status": "available",
+            "stock_available": 10,
+            "poc": [
+                {
+                    "name": "Abhishek",
+                    "phone": "9999647130"
+                }
+            ],
+            "location": {
+                "type": "Point",
+                "coordinates": [28.446576, 77.028513]
+            },
+            "type": "out_stock"
+        }
+    ]
+}
