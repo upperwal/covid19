@@ -119,10 +119,70 @@ const findFraud = async (fraudBody) => {
     return fraud;
 };
 
+/**
+ * Get Stats
+ * @param {Object} fraudBody
+ * @returns {Promise<Fraud>}
+ */
+const getStats = async (fraudBody) => {
+    let fraud = await Fraud.aggregate([
+        {
+            '$group': {
+                _id: {
+                    phone: '$phone'
+                }
+            }
+        },{
+            '$count': 'phone'
+        }
+    ]);
+    let phone = fraud[0].phone
+
+    fraud = await Fraud.aggregate([
+        {
+            '$group': {
+                _id: {
+                    upi: '$upi'
+                }
+            }
+        },{
+            '$count': 'upi'
+        }
+    ]);
+    let upi = fraud[0].upi
+
+    fraud = await Fraud.aggregate([
+        {
+            '$group': {
+                _id: {
+                    account: '$account_number'
+                }
+            }
+        },{
+            '$count': 'account'
+        }
+    ]);
+    let account = fraud[0].account
+
+    let count = await Fraud.count({});
+    
+    return new Promise((resolve, reject) => {
+        resolve({
+            phone: phone,
+            upi: upi,
+            account: account,
+            count: count
+        })
+    })
+};
+
+
+
 module.exports = {
   addInfo,
   findInfo,
   addUpdate,
   addFraud,
   findFraud,
+  getStats,
 };

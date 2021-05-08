@@ -25,5 +25,9 @@ router
 router
   .route('/findFraud')
   .post(infoController.findFraud)
+  
+router
+  .route('/getStats')
+  .get(infoController.getStats)
 
 module.exports = router;
