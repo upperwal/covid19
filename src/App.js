@@ -41,16 +41,20 @@ function App() {
 			<Router basename='/'>
 				{/* <Header/> */}
 				<Switch>
-					<Route exact 
+					{/* <Route exact 
 						path="/" 
 						render={(props) => <Home {...props} locationState={locationState}  /> }
 					/>
 					<Route 
 						path="/list/:item"
 						render={(props) => <MapList {...props} locationState={locationState}  /> }
+					/> */}
+					<Route 
+						path="/"
+						render={(props) => <Fraud {...props} locationState={locationState}  /> }
 					/>
 					<Route 
-						path="/fraud"
+						path="/scam"
 						render={(props) => <Fraud {...props} locationState={locationState}  /> }
 					/>
 					{/* <Route path="/sd" component={SD} />
