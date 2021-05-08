@@ -4,6 +4,10 @@
     text-align: center;
     padding: 100px;
     color: $theme-color;
+    @media (max-width: 415px) {
+        padding: 10px;
+        padding-bottom: 50px;
+    }
     h1 {
         margin-top: 40px 0;
         font-size: 3em;
@@ -12,6 +16,10 @@
         button.MuiButtonBase-root {
             height: 100%;
             padding: 0px 30px;
+            @media (max-width: 959px) {
+                padding: 10px 30px;
+                width: 100%;
+            }
         }
     }
     .click-link {
@@ -34,6 +42,10 @@
         font-size: 1.2em;
         border-radius: 5px;
         padding: 10px 0;
+        @media (max-width: 650px) {
+            font-size: 0.8em;
+            padding: 10px 10px;
+        }
     }
     .result-summary-fraud {
         color: $theme-secondary;
@@ -47,12 +59,44 @@
     }
     .result-list {
         margin: 20px 0;
+        overflow-x: scroll;
         .search-list-item {
             margin: 20px 0;
+        }
+        @media (max-width: 415px) {
+            .MuiTableCell-root {
+                font-size: 0.7em;
+            }
+            .MuiTableCell-head {
+                line-height: inherit;
+            }
         }
     }
     h6 {
         margin: 50px 0;
 
+    }
+    .fraud-stats-container {
+        .stats {
+            display: inline-block;
+            margin: 3px 5px;
+            @media (max-width: 415px) {
+                margin: 0px 5px;
+                font-size: 0.6em;
+            }
+            .label {
+                padding: 2px 7px;
+                border: 1px solid $theme-color;
+                border-bottom-left-radius: 4px;
+            }
+            .value {
+                color: #fff;
+                padding: 2px 7px;
+                background-color: $theme-color;
+                border: 1px solid $theme-color;
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
+        }
     }
 }

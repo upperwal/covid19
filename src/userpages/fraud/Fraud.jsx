@@ -1,4 +1,4 @@
-import React, { useRef, useState, Suspense } from 'react';
+import React, { useRef, useState, Suspense, useEffect } from 'react';
 import { withTranslation } from 'react-i18next';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
@@ -22,8 +22,13 @@ import './Fraud.scss'
 
 function FraudComponent(props) {
 
+    const api = 'http://localhost:4000' // https://api.cov.social
     const searchInput = useRef('')
     const [searchResults, setSearchResults] = useState(undefined)
+    const [submitButtonState, setSubmitButtonState] = useState({
+        disabled: false,
+        message: 'Submit'
+    })
     const [snackbar, setSnackbar] = useState({
         openSnackbar: false,
         type: '',
@@ -40,6 +45,13 @@ function FraudComponent(props) {
         r_email: '',
         r_phone: '',
     });
+    const [stats, setStats] = useState(undefined)
+
+    useEffect(() => {
+        fetch(api + '/v1/info/getStats')
+            .then(res => res.json())
+            .then(setStats)
+    }, [])
 
     const handleChangeForm = name => event => {
         setFormValues({ ...formValues, [name]: event.target.value });
@@ -58,35 +70,67 @@ function FraudComponent(props) {
     };
 
     const handleClickOpenDialog = () => {
+        setFormValues({
+            name: '',
+            phone: '',
+            account: '',
+            upi: '',
+            details: '',
+            region: props.data.locationState.district,
+            r_email: '',
+            r_phone: '',
+        });
         setOpenDialog(true);
     };
 
     const validateNewEntryForm = () => {
         if(formValues.phone == '' && formValues.upi == '' && formValues.account == '') {
-            return false
+            return {
+                val: false,
+                msg: 'One of the following should be set: Phone number, UPI or Account number'
+            }
+        } else if(
+            formValues.phone !== '' && 
+            formValues.phone.match(/^[0-9]+$/) !== null && 
+            formValues.phone.match(/^[0-9]+$/)[0].length !== 10) {
+            return {
+                val: false,
+                msg: 'Phone number of the scammer should be 10 digits and numeric.'
+            }
         }
-        return true
+        return {
+            val: true
+        }
     }
 
     const handleNewSubmitButton = () => {
-        if(!validateNewEntryForm()) {
+        setSubmitButtonState({
+            disabled: true,
+            message: 'Submitting'
+        })
+        let res = validateNewEntryForm()
+        if(!res.val) {
             setSnackbar({
                 openSnackbar: true,
                 type: 'error',
-                message: 'One of the following should be set: Phone number, UPI or Account number'
+                message: res.msg
+            })
+            setSubmitButtonState({
+                disabled: false,
+                message: 'Submit'
             })
             return
         }
-        fetch('http://localhost:4000/v1/info/addFraud', {
+        fetch(api + '/v1/info/addFraud', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "phone": formValues.phone,
-                "upi": formValues.upi,
-                "account_number": formValues.account,
+                "phone": formValues.phone.replace(/\s/g, ''),
+                "upi": formValues.upi.replace(/\s/g, ''),
+                "account_number": formValues.account.replace(/\s/g, ''),
                 "comment": formValues.details,
                 "entity_name": formValues.name,
                 "region": {
@@ -107,6 +151,20 @@ function FraudComponent(props) {
                         message: 'Thanks for helping us out. Scam id: ' + res._id
                     })
                     handleCloseDialog()
+                    setSubmitButtonState({
+                        disabled: false,
+                        message: 'Submit'
+                    })
+                } else {
+                    setSnackbar({
+                        openSnackbar: true,
+                        type: 'error',
+                        message: 'Some error submitting this entry. Please retry.'
+                    })
+                    setSubmitButtonState({
+                        disabled: false,
+                        message: 'Submit'
+                    })
                 }
              })
     }
@@ -120,16 +178,17 @@ function FraudComponent(props) {
             })
             return
         }
-        fetch('http://localhost:4000/v1/info/findFraud', {
+        let val = searchInput.current.value.replace(/\s/g, '')
+        fetch(api + '/v1/info/findFraud', {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "phone": searchInput.current.value,
-                "upi": searchInput.current.value,
-                "account_number": searchInput.current.value
+                "phone": val,
+                "upi": val,
+                "account_number": val
             })
         })
             .then(res => res.json())
@@ -167,6 +226,7 @@ function FraudComponent(props) {
                         <TableCell align="right">{idx + 1}</TableCell>
                         <TableCell align="right">{d.toLocaleDateString() + ' ' + d.toLocaleTimeString('en-US')}</TableCell>
                         <TableCell align="right">{r.entity_name || 'Unknown entity '}</TableCell>
+                        <TableCell align="right">{r.region.name || 'Unknown '}</TableCell>
                         <TableCell align="right">{r.comment}</TableCell>
                     </TableRow>
                 )
@@ -186,6 +246,7 @@ function FraudComponent(props) {
                                 <TableCell align="right">#</TableCell>
                                 <TableCell align="right">Date Reported</TableCell>
                                 <TableCell align="right">Name</TableCell>
+                                <TableCell align="right">City</TableCell>
                                 <TableCell align="right">Comment</TableCell>
                             </TableRow>
                         </TableHead>
@@ -202,6 +263,31 @@ function FraudComponent(props) {
         return <MuiAlert elevation={6} variant="filled" {...props} />;
     }
 
+    function renderStats() {
+        if(stats === undefined) 
+            return
+        return (
+            <div className="fraud-stats-container">
+                <div className="stats">
+                    <span className="label">Total Records</span>
+                    <span className="value">{stats.count}</span>
+                </div>
+                <div className="stats">
+                    <span className="label">Unique Phone Numbers</span>
+                    <span className="value">{stats.phone}</span>
+                </div>
+                <div className="stats">
+                    <span className="label">Unique Account Numbers</span>
+                    <span className="value">{stats.account}</span>
+                </div>
+                <div className="stats">
+                    <span className="label">Unique UPI IDs</span>
+                    <span className="value">{stats.upi}</span>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <section className="Fraud">
             <div className="container">
@@ -209,12 +295,14 @@ function FraudComponent(props) {
                 <h1>CoViD Scam Directory</h1>
                 <p>This is an initiative to help you identify fraud entities.</p>
                 <p className="click-link" onClick={handleClickOpenDialog}>Add a new record</p>
-                <a href="https://github.com" className="click-link">API Access</a>
+                <a href="https://github.com/upperwal/covid19/wiki" target="_blank" className="click-link">API Access</a>
                 <br/>
+                <br/>
+                {renderStats()}
                 <br/>
                 <div className="search-bar">
                     <Grid container spacing={1}>
-                        <Grid item xs={11}>
+                        <Grid item xs={12} md={11}>
                             <TextField 
                                 fullWidth={true} 
                                 placeholder="Enter a phone number, account number or UPI ID" 
@@ -224,13 +312,14 @@ function FraudComponent(props) {
                                 inputRef={searchInput}
                             />
                         </Grid>
-                        <Grid item xs={1}>
+                        <Grid item xs={12} md={1}>
                             <Button variant="outlined" color="primary" onClick={getFraudSearchResults}>
                                 GO
                             </Button>
                         </Grid>
                     </Grid>
                 </div>
+                <small>Please remove +91 from the phone number.</small>
                 {renderSearchSummary()}
                 {renderTable()}
             </div>
@@ -254,7 +343,7 @@ function FraudComponent(props) {
                     <TextField
                         margin="dense"
                         id="phone"
-                        label="Phone number of the scammer"
+                        label="Mobile number of the scammer"
                         type="text"
                         variant="outlined"
                         onChange={handleChangeForm('phone')}
@@ -296,7 +385,7 @@ function FraudComponent(props) {
                         type="text"
                         variant="outlined"
                         onChange={handleChangeForm('region')}
-                        value={props.data.locationState.district}
+                        defaultValue={props.data.locationState.district}
                         fullWidth
                     />
                     <h6 className="personal-details" style={{marginTop: '30px', fontFamily: "Roboto"}}>Your details (Optional)</h6>
@@ -326,8 +415,8 @@ function FraudComponent(props) {
                 <Button onClick={handleCloseDialog} color="primary">
                     Cancel
                 </Button>
-                <Button onClick={handleNewSubmitButton} color="primary">
-                    Submit
+                <Button onClick={handleNewSubmitButton} color="primary" disabled={submitButtonState.disabled}>
+                    {submitButtonState.message}
                 </Button>
                 </DialogActions>
             </Dialog>
