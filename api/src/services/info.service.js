@@ -106,13 +106,13 @@ const findFraud = async (fraudBody) => {
     const fraud = await Fraud.find({
         '$or': [
             {
-                'phone': fraudBody.phone
+                'phone': new RegExp(fraudBody.phone)
             },
             {
-                'upi': fraudBody.upi
+                'upi': new RegExp(fraudBody.upi)
             },
             {
-                'account_number': fraudBody.account_number
+                'account_number': new RegExp(fraudBody.account_number)
             }
         ]
     }).select('-reported_by');
