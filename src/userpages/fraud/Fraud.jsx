@@ -22,7 +22,7 @@ import './Fraud.scss'
 
 function FraudComponent(props) {
 
-    const api = 'http://localhost:4000' // https://api.cov.social
+    const api = 'https://api.cov.social'
     const searchInput = useRef('')
     const [searchResults, setSearchResults] = useState(undefined)
     const [submitButtonState, setSubmitButtonState] = useState({
@@ -90,14 +90,29 @@ function FraudComponent(props) {
                 msg: 'One of the following should be set: Phone number, UPI or Account number'
             }
         } else if(
-            formValues.phone !== '' && 
-            formValues.phone.match(/^[0-9]+$/) !== null && 
-            formValues.phone.match(/^[0-9]+$/)[0].length !== 10) {
+            formValues.phone !== '' &&
+            (!/^\d+$/.test(formValues.phone) ||
+            formValues.phone.length !== 10)
+        ) {
+
+            // (formValues.phone !== '' &&
+            // (formValues.phone.match(/^[0-9]+$/) !== null && 
+            // formValues.phone.match(/^[0-9]+$/)[0].length !== 10) || 
+            // formValues.phone.length !== 10)) {
             return {
                 val: false,
                 msg: 'Phone number of the scammer should be 10 digits and numeric.'
             }
+        } else if(
+                formValues.account !== '' &&
+                !/^\d+$/.test(formValues.account)
+        ) {
+            return {
+                val: false,
+                msg: 'Account number should be numeric.'
+            }
         }
+        console.log(formValues.phone.length)
         return {
             val: true
         }
@@ -177,6 +192,13 @@ function FraudComponent(props) {
                 message: 'Search query is empty'
             })
             return
+        } else if(searchInput.current.value.length <= 5) {
+            setSnackbar({
+                openSnackbar: true,
+                type: 'error',
+                message: 'This doesn\'t look like a phone number, account number of a UPI ID. Check it again.'
+            })
+            return
         }
         let val = searchInput.current.value.replace(/\s/g, '')
         fetch(api + '/v1/info/findFraud', {
@@ -227,7 +249,7 @@ function FraudComponent(props) {
                         <TableCell align="right">{d.toLocaleDateString() + ' ' + d.toLocaleTimeString('en-US')}</TableCell>
                         <TableCell align="right">{r.entity_name || 'Unknown entity '}</TableCell>
                         <TableCell align="right">{r.region.name || 'Unknown '}</TableCell>
-                        <TableCell align="right">{r.comment}</TableCell>
+                        <TableCell align="right">{r.comment.replace(/\n/g, '')}</TableCell>
                     </TableRow>
                 )
             })
