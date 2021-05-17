@@ -103,20 +103,40 @@ const addFraud = async (fraudBody) => {
  * @returns {Promise<Fraud>}
  */
 const findFraud = async (fraudBody) => {
-    const fraud = await Fraud.find({
-        '$or': [
-            {
-                'phone': new RegExp(fraudBody.phone)
-            },
-            {
-                'upi': new RegExp(fraudBody.upi)
-            },
-            {
-                'account_number': new RegExp(fraudBody.account_number)
-            }
-        ]
-    }).select('-reported_by');
+    let pipeline = {}
+    if(fraudBody.search !== undefined) {
+        pipeline = {
+            '$or': [
+                {
+                    'phone': new RegExp(fraudBody.search)
+                },
+                {
+                    'upi': new RegExp(fraudBody.search)
+                },
+                {
+                    'account_number': new RegExp(fraudBody.search)
+                }
+            ]
+        }
+    } else {
+        pipeline = {
+            '$or': [
+                {
+                    'phone': new RegExp(fraudBody.phone)
+                },
+                {
+                    'upi': new RegExp(fraudBody.upi)
+                },
+                {
+                    'account_number': new RegExp(fraudBody.account_number)
+                }
+            ]
+        }
+    }
+
+    const fraud = await Fraud.find(pipeline).select('-reported_by');
     return fraud;
+    
 };
 
 /**
