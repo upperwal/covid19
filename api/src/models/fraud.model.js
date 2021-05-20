@@ -46,6 +46,9 @@ const fraudSchema = mongoose.Schema({
     is_reported_by_credible_source: {
         type: Boolean,
         default: false
+    },
+    source: {
+        type: String
     }
 })
 
