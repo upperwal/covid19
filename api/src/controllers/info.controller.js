@@ -32,11 +32,17 @@ const getStats = catchAsync(async (req, res) => {
   res.status(httpStatus.CREATED).send(fraud);
 });
 
+const findFraudCount = catchAsync(async (req, res) => {
+  const fraud = await infoService.findFraudCount(req.body);
+  res.status(httpStatus.CREATED).send(fraud);
+});
+
 module.exports = {
   addInfo,
   findInfo,
   addUpdate,
   addFraud,
   findFraud,
-  getStats
+  getStats,
+  findFraudCount,
 };

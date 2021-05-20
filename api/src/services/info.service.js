@@ -196,6 +196,39 @@ const getStats = async (fraudBody) => {
     })
 };
 
+/**
+ * Get count of reported fraud cases
+ * @param {Object} fraudBody
+ * @returns {Promise<Custom>}
+ */
+const findFraudCount = async (fraudBody) => {
+    if(fraudBody.search === undefined || fraudBody.search === '') {
+        return {
+            fraud_report_count: 0,
+            view_url: 'https://cov.social/#/scam/'
+        }
+    }
+    let pipeline = {
+        '$or': [
+            {
+                'phone': new RegExp(fraudBody.search)
+            },
+            {
+                'upi': new RegExp(fraudBody.search)
+            },
+            {
+                'account_number': new RegExp(fraudBody.search)
+            }
+        ]
+    }
+
+    const fraud = await Fraud.find(pipeline).count();
+    return {
+        fraud_report_count: fraud,
+        view_url: 'https://cov.social/#/scam/q/' + fraudBody.search
+    };
+};
+
 
 
 module.exports = {
@@ -205,4 +238,5 @@ module.exports = {
   addFraud,
   findFraud,
   getStats,
+  findFraudCount,
 };

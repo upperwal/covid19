@@ -30,4 +30,8 @@ router
   .route('/getStats')
   .get(infoController.getStats)
 
+router
+  .route('/findFraudCount')
+  .post(infoController.findFraudCount)
+
 module.exports = router;
